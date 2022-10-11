@@ -18,7 +18,7 @@ public class RabbitMQConfig {
     private String apto03QueueName = "apto03Queue";
     private String apto04QueueName = "apto04Queue";
 
-    private String fanoutExchange = " fanout-exchange";
+    private String fanoutExchange = "fanout-exchange";
 
     @Bean
     Queue apto01Queue() {return new Queue(apto01QueueName, false);}
