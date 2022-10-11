@@ -120,4 +120,18 @@ public class RabbitMQConfig {
     }
 
 
+
+    @Bean
+    MessageListenerContainer messageListenerContainer(ConnectionFactory connectionFactory) {
+        SimpleMessageListenerContainer simpleMessageListenerContainer = new SimpleMessageListenerContainer();
+        simpleMessageListenerContainer.setConnectionFactory(connectionFactory);
+        return simpleMessageListenerContainer;
+    }
+
+
+    public AmqpTemplate rabbitTemplate(ConnectionFactory connectionFactory) {
+        final RabbitTemplate rabbitTemplate = new RabbitTemplate(connectionFactory);
+        rabbitTemplate.setMessageConverter(jsonMessageConverter());
+        return rabbitTemplate;
+    }
 }

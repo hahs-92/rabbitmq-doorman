@@ -17,6 +17,8 @@ public class RabbitMQController {
     private String headerExchange = "header-exchange";
     private String fanoutExchange = "fanout-exchange";
 
+    private String successMessage = "Message sent successfully";
+
     @Autowired
     RabbitMQService rabbitMQService;
 
@@ -30,7 +32,7 @@ public class RabbitMQController {
         Message message = messageConverter.toMessage(request.getMessage(), messageProperties);
 
         return rabbitMQService.sendToOdd(this.headerExchange, "",message)
-                .then(Mono.just("Message sent successfully"));
+                .then(Mono.just(successMessage));
     }
 
     @PostMapping("/all")
@@ -38,7 +40,7 @@ public class RabbitMQController {
             @RequestBody RequestMessage request
     ) {
         return rabbitMQService.send(this.fanoutExchange, "",request.getMessage())
-                .then(Mono.just("Message sent successfully"));
+                .then(Mono.just(successMessage));
     }
 
 }
