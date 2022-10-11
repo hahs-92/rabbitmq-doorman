@@ -1,11 +1,12 @@
 spring:
   rabbitmq:
-    #host: hawk.rmq.cloudamqp.com
-    #port: 5672
-    #username: ijmwsssg
-    #password: aglO51cqa-jUgsnrfV7KuxSxbqoXAUUy
-    host: localhost
+    host: hawk.rmq.cloudamqp.com
     port: 5672
-    username: guest
-    password: guest
+    username: ijmwsssg
+    password: aglO51cqa-jUgsnrfV7KuxSxbqoXAUUy
+    virtual-host: ijmwsssg
+    #host: localhost
+    #port: 5672
+    #username: guest
+    #password: guest
 
